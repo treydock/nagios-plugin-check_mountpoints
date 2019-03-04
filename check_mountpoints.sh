@@ -285,7 +285,7 @@ for MP in ${MPS} ; do
         done
         if ps -p $DFPID > /dev/null ; then
                 $(kill -s SIGTERM $DFPID &>/dev/null)
-                ERR_MESG[${#ERR_MESG[*]}]="${MP} did not respond in $TIME_TILL_STALE sec. Seems to be stale."
+                ERR_MESG[${#ERR_MESG[*]}]="${MP} did not respond in $TIME_TILL_STALE sec. IO to the file system is either slow or hung."
         else
         ## if it not stales, check if it is a directory
                 if [ ! -d ${MP} ]; then
